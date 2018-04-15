@@ -11,6 +11,7 @@
 1. $ `./.bin/build_workspace.sh`
 1. $ `cd workspace`
 1. $ `vim .env`
+
     ```
     ! #APPLICATION=../
     + APPLICATION=../src
@@ -22,6 +23,7 @@
     + DATA_SAVE_PATH=~/.laradock/data/php
     ```
 1. $ `vim docker-compose.yml`
+
     ```
       applications:
       image: tianon/true
@@ -36,15 +38,17 @@
 1. $ `cd /vagrant/.lib/php`
 1. $ `./.bin/create_cakephp_project.sh`
 1. $ `vim workspace/nginx/sites/default.conf`
+
     ```
     ! #root /var/www/public;
     + root /var/www/cakephp/app/webroot;'
     ```
 1. $ `docker-compose restart nginx`
 1. $ `vim workspace/.env`
+
     ```
     ! #PHP_FPM_INSTALL_INTL=false
     + PHP_FPM_INSTALL_INTL=true
     ```
 1. $ `docker-compose up -d --build php-fpm`
-1. Access to 33.33.33.10:80
+1. Access to `33.33.33.10:80`
