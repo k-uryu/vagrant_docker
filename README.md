@@ -72,6 +72,16 @@
     !   'encoding' => 'utf8',
       );
     ```
+1. git clone https://github.com/cakephp/debug_kit.git src/cakephp/app/Plugin/DebugKit
+1. vim src/cakephp/app/Config/bootstrap.php
+
+    ```
+       *
+       * CakePlugin::loadAll(); // Loads all plugins at once
+       * CakePlugin::load('DebugKit'); // Loads a single plugin named DebugKit
+       */
+    + CakePlugin::load('DebugKit');
+    ```
 1. $ `vim workspace/nginx/sites/default.conf`
 
     ```
