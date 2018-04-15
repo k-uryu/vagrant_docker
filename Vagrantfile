@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
     vb.gui = false
   end
 
-  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 80, host: 8888
   config.vm.network :private_network, ip: "33.33.33.10"
   config.vm.hostname = "user.dev"
   config.hostsupdater.aliases = [
