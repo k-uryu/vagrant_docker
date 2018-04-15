@@ -8,6 +8,8 @@ cp -r ${ROOT_DIR}/.bin workspace/.bin
 cd workspace
 cp env-example .env
 
+echo 'cd workspace'
+echo ' ↓ '
 echo 'vim .env'
 echo '-----------------------------------------------------------------'
 echo '! #APPLICATION=../'
