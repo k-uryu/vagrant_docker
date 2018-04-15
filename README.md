@@ -17,7 +17,7 @@
     + APPLICATION=../src
 
     ! #PHP_VERSION=72
-    + #PHP_VERSION=56
+    + PHP_VERSION=56
 
     ! #DATA_SAVE_PATH=~/.laradock/data
     + DATA_SAVE_PATH=~/.laradock/data/php
@@ -37,6 +37,41 @@
 ### Vagrant側での作業
 1. $ `cd /vagrant/.lib/php`
 1. $ `./.bin/create_cakephp_project.sh`
+1. $ `vim src/cakephp/app/Config/core.php`(好きな文字列に変更)
+
+    ```
+    ! /*Configure::write('Security.salt', 'DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgaC9mi');*/
+    + Configure::write('Security.salt', 'DYhG93b0qyJfIxfs2guVoUubWwvniR2G0Fgu3kur');
+
+    ! /*Configure::write('Security.cipherSeed', '76859309657453542496749683645');*/
+    + Configure::write('Security.cipherSeed', '76859309657453542496719940206');
+    ```
+1. $ `cp src/cakephp/app/Config/database.php.default src/cakephp/app/Config/database.php`
+1. $ `vim src/cakephp/app/Config/database.php`
+
+    ```
+      public $default = array(
+        'datasource' => 'Database/Mysql',
+        'persistent' => false,
+    !   'host' => 'mysql',
+    !   'login' => 'default',
+    !   'password' => 'secret',
+    !   'database' => 'default',
+        'prefix' => '', 
+    !   'encoding' => 'utf8',
+      );
+
+      public $test = array(
+        'datasource' => 'Database/Mysql',
+        'persistent' => false,
+    !   'host' => 'mysql',
+    !   'login' => 'default',
+    !   'password' => 'secret',
+    !   'database' => 'default',
+        'prefix' => '', 
+    !   'encoding' => 'utf8',
+      );
+    ```
 1. $ `vim workspace/nginx/sites/default.conf`
 
     ```
